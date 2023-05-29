@@ -2,14 +2,14 @@ import 'package:clean_api/Source/core/routes/routes.dart';
 import 'package:clean_api/Source/features/homePage/data/repositories/post_repository_impl.dart';
 import 'package:clean_api/Source/features/homePage/data/sources/post_data_source.dart';
 import 'package:clean_api/Source/features/homePage/domain/repositories/post_repository.dart';
-import 'package:clean_api/Source/features/homePage/domain/usecases/fetch_posts_usecase.dart';
+import 'package:clean_api/Source/features/homePage/domain/usecases/get_posts_usecase.dart';
 import 'package:clean_api/Source/features/homePage/presentation/bloc/post_bloc.dart';
 import 'package:clean_api/Source/features/homePage/presentation/pages/post_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
-  final PostDataSource postDataSource = PostApi();
+  final PostDataSource postDataSource = PostDataSourceImpl();
   final PostRepository postRepository = PostRepositoryImpl(postDataSource);
   final GetPostsUseCase getPostsUseCase = GetPostsUseCase(postRepository);
   final PostBloc postBloc = PostBloc(getPostsUseCase: getPostsUseCase);
@@ -30,13 +30,9 @@ class MyApp extends StatelessWidget {
           create: (context) => postBloc,
         ),
       ],
-      child: MaterialApp(
+      child: const MaterialApp(
         onGenerateRoute: generateRoute,
         debugShowCheckedModeBanner: false,
-        title: 'Clean Architecture Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
         home: PostPage(),
       ),
     );

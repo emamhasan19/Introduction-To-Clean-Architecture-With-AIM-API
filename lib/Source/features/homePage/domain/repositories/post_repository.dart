@@ -1,5 +1,5 @@
-import 'package:clean_api/Source/features/homePage/data/models/post_model.dart';
+import 'package:clean_api/Source/features/homePage/domain/entities/post_entity.dart';
 
 abstract class PostRepository {
-  Future<List<PostModel>> getPosts();
+  Future<List<PostEntity>> getPosts();
 }

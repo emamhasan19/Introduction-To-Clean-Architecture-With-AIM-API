@@ -1,5 +1,5 @@
-import 'package:clean_api/Source/features/homePage/data/models/post_model.dart';
 import 'package:clean_api/Source/features/homePage/data/sources/post_data_source.dart';
+import 'package:clean_api/Source/features/homePage/domain/entities/post_entity.dart';
 import 'package:clean_api/Source/features/homePage/domain/repositories/post_repository.dart';
 
 class PostRepositoryImpl implements PostRepository {
@@ -8,7 +8,7 @@ class PostRepositoryImpl implements PostRepository {
   PostRepositoryImpl(this.postDataSource);
 
   @override
-  Future<List<PostModel>> getPosts() {
+  Future<List<PostEntity>> getPosts() {
     return postDataSource.getPosts();
   }
 }

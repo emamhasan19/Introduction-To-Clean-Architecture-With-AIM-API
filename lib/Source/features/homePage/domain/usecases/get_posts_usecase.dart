@@ -1,4 +1,4 @@
-import 'package:clean_api/Source/features/homePage/data/models/post_model.dart';
+import 'package:clean_api/Source/features/homePage/domain/entities/post_entity.dart';
 import 'package:clean_api/Source/features/homePage/domain/repositories/post_repository.dart';
 
 class GetPostsUseCase {
@@ -6,7 +6,7 @@ class GetPostsUseCase {
 
   GetPostsUseCase(this.postRepository);
 
-  Future<List<PostModel>> execute() {
+  Future<List<PostEntity>> execute() {
     return postRepository.getPosts();
   }
 }

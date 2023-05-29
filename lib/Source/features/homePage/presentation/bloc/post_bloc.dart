@@ -1,4 +1,4 @@
-import 'package:clean_api/Source/features/homePage/domain/usecases/fetch_posts_usecase.dart';
+import 'package:clean_api/Source/features/homePage/domain/usecases/get_posts_usecase.dart';
 import 'package:clean_api/Source/features/homePage/presentation/bloc/post_event.dart';
 import 'package:clean_api/Source/features/homePage/presentation/bloc/post_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -39,27 +39,3 @@ class PostBloc extends Bloc<PostEvent, PostState> {
   //   }
   // }
 }
-
-// import 'package:bloc/bloc.dart';
-// import 'package:clean_api/Source/features/homePage/domain/repositories/post_repository.dart';
-// import 'package:clean_api/Source/features/homePage/presentation/bloc/post_event.dart';
-// import 'package:clean_api/Source/features/homePage/presentation/bloc/post_state.dart';
-//
-// class PostBloc extends Bloc<PostEvent, PostState> {
-//   final PostRepository postRepository;
-//
-//   PostBloc({required this.postRepository}) : super(PostInitial());
-//
-//   @override
-//   Stream<PostState> mapEventToState(PostEvent event) async* {
-//     if (event is FetchPostsEvent) {
-//       yield PostLoading();
-//       try {
-//         final posts = await postRepository.getPosts();
-//         yield PostLoaded(posts);
-//       } catch (e) {
-//         yield PostError('Failed to fetch posts.');
-//       }
-//     }
-//   }
-// }

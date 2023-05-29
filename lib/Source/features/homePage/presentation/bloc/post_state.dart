@@ -1,15 +1,4 @@
-// part of 'post_bloc.dart';
-//
-// abstract class PostState extends Equatable {
-//   const PostState();
-// }
-//
-// class PostInitial extends PostState {
-//   @override
-//   List<Object> get props => [];
-// }
-
-import 'package:clean_api/Source/features/homePage/data/models/post_model.dart';
+import 'package:clean_api/Source/features/homePage/domain/entities/post_entity.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class PostState extends Equatable {
@@ -24,7 +13,7 @@ class PostInitial extends PostState {}
 class PostLoading extends PostState {}
 
 class PostLoaded extends PostState {
-  final List<PostModel> posts;
+  final List<PostEntity> posts;
 
   const PostLoaded(this.posts);
 

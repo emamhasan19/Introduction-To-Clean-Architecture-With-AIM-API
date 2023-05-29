@@ -45,7 +45,9 @@ class _PostPageState extends State<PostPage> {
         },
         builder: (context, state) {
           if (state is PostLoading) {
-            return const Center(child: CircularProgressIndicator());
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
           } else if (state is PostLoaded) {
             return ListView.builder(
               itemCount: state.posts.length,
@@ -123,7 +125,9 @@ class _PostPageState extends State<PostPage> {
               },
             );
           } else {
-            return const Center(child: Text('No data found.'));
+            return const Center(
+              child: Text('No data found.'),
+            );
           }
         },
       ),
