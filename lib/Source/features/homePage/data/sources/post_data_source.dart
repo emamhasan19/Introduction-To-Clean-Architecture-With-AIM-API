@@ -11,6 +11,7 @@ abstract class PostDataSource {
 class PostDataSourceImpl implements PostDataSource {
   @override
   Future<List<PostEntity>> getPosts() async {
+    await Future.delayed(const Duration(seconds: 2));
     final response =
         await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
 

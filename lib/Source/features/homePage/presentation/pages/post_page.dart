@@ -5,6 +5,7 @@ import 'package:clean_api/Source/features/homePage/presentation/bloc/post_event.
 import 'package:clean_api/Source/features/homePage/presentation/bloc/post_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shimmer/shimmer.dart';
 
 class PostPage extends StatefulWidget {
   const PostPage({super.key});
@@ -45,8 +46,18 @@ class _PostPageState extends State<PostPage> {
         },
         builder: (context, state) {
           if (state is PostLoading) {
-            return const Center(
-              child: CircularProgressIndicator(),
+            return Center(
+              child: Shimmer.fromColors(
+                baseColor: Palette.primary_color,
+                highlightColor: Palette.white_color,
+                child: const Text(
+                  'AIM API',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
             );
           } else if (state is PostLoaded) {
             return ListView.builder(
