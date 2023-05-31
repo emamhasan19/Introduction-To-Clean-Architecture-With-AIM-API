@@ -10,10 +10,10 @@ class PostModel extends PostEntity {
 
   factory PostModel.fromJson(Map<String, dynamic> json) {
     return PostModel(
-      id: json['id'],
-      userId: json['userId'],
-      title: json['title'],
-      body: json['body'],
+      id: json['id'] ?? 0,
+      userId: json['userId'] ?? 0,
+      title: json['title'] ?? "No Title",
+      body: json['body'] ?? "No Body",
     );
   }
 

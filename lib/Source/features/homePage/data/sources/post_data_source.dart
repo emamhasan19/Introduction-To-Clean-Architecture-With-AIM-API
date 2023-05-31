@@ -22,7 +22,14 @@ class PostDataSourceImpl implements PostDataSource {
           .toList();
       return posts;
     } else {
-      throw Exception('Failed to fetch posts');
+      throw Exception(
+          'Failed to fetch posts due to ${response.statusCode} error!');
     }
+
+    // final List<dynamic> jsonData = jsonDecode(response.body);
+    // final List<PostEntity> posts = jsonData
+    //     .map((json) => PostModel.fromJson(json as Map<String, dynamic>))
+    //     .toList();
+    // return posts;
   }
 }
